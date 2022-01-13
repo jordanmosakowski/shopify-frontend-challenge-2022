@@ -4,7 +4,7 @@ import React, {useState, useEffect} from "react";
 function App() {
   const [pictures, setPictures] = useState([]);
 
-  useEffect( async () => {
+  useEffect( () => {
     async function fetchPhotos(){
       const photos = await apiCall('/rovers/curiosity/photos', {sol: 1000});
       setPictures(photos.photos);
