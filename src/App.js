@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import apiCall from './api';
+import React, {useState, useEffect} from "react";
 
 function App() {
+  const [pictures, setPictures] = useState([]);
+
+  useEffect( async () => {
+    const photos = await apiCall('/rovers/curiosity/photos', {sol: 1000});
+    setPictures(photos.photos);
+    console.log(photos.photos);
+  },[]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        pictures.map(picture => <div key={picture.id}>
+          <img src={picture.img_src} alt=""/>
+          <span>{picture.camera.full_name}</span>
+        </div>)
+      }
     </div>
   );
 }
