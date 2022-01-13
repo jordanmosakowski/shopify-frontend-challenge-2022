@@ -1,27 +1,26 @@
-import apiCall from './api';
+import Home from './Home';
+import Rover from './Rover';
 import React, {useState, useEffect} from "react";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams
+} from "react-router-dom";
 
 function App() {
-  const [pictures, setPictures] = useState([]);
-
-  useEffect( () => {
-    async function fetchPhotos(){
-      const photos = await apiCall('/rovers/curiosity/photos', {sol: 1000});
-      setPictures(photos.photos);
-      console.log(photos.photos);
-    }
-    fetchPhotos();
-  },[]);
 
   return (
-    <div className="App">
-      {
-        pictures.map(picture => <div key={picture.id}>
-          <img src={picture.img_src} alt=""/>
-          <span>{picture.camera.full_name}</span>
-        </div>)
-      }
-    </div>
+    <Router>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home/>}/>
+          <Route path="/rover/:roverId" element={<Rover/>}/>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
