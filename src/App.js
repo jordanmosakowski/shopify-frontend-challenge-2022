@@ -5,9 +5,12 @@ function App() {
   const [pictures, setPictures] = useState([]);
 
   useEffect( async () => {
-    const photos = await apiCall('/rovers/curiosity/photos', {sol: 1000});
-    setPictures(photos.photos);
-    console.log(photos.photos);
+    async function fetchPhotos(){
+      const photos = await apiCall('/rovers/curiosity/photos', {sol: 1000});
+      setPictures(photos.photos);
+      console.log(photos.photos);
+    }
+    fetchPhotos();
   },[]);
 
   return (
