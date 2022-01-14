@@ -3,7 +3,7 @@ import React, {useState, useEffect} from "react";
 import {
   Link,
 } from "react-router-dom";
-import "./home.css"
+import "./home.css";
 
 export default function Home(){
     const [rovers, setRovers] = useState([]);
