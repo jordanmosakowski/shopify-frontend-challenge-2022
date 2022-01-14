@@ -9,11 +9,21 @@ export default function Rover(){
     const { roverId } = useParams();
     const [selectedDate, setDate] = useState((roverId == "spirit" || roverId == "opportunity" ) ? "2010-01-01" : "2022-01-01");
     const [page, setPage] = useState(1);
+    const [minDate,setMinDate] = useState("2004-01-01");
+    const [maxDate,setMaxDate] = useState((new Date()).toISOString().split("T")[0]);
 
     //Fetch photos on load
     useEffect(() => {
         fetchPhotos(selectedDate);
+        loadRoverInfo();
     },[]);
+
+    //Load the rover info to set minDate and maxDate
+    const loadRoverInfo = async () => {
+        const roverInfo = (await apiCall(`/rovers/${roverId}`)).rover;
+        setMinDate(roverInfo.landing_date);
+        setMaxDate(roverInfo.max_date);
+    }
 
     //Fetch the first set of photos for a given date
     const fetchPhotos = async (date) =>{
@@ -45,7 +55,7 @@ export default function Rover(){
     return <>
         <div class='date-container'>
             <label for='date-selector'>View photos for:</label>
-            <input type="date" name='date-selector' id='date-selector' min="2004-01-01" max={(new Date()).toISOString().split("T")[0]} value={selectedDate}  onChange={dateChanged}/>    
+            <input type="date" name='date-selector' id='date-selector' min={minDate} max={maxDate} value={selectedDate}  onChange={dateChanged}/>    
         </div>
         <main style={{textAlign:"center"}}>
             {

@@ -22,8 +22,8 @@ export default function Home(){
             rovers.map(rover => <article className='card' key={"rover_"+rover.id}>
                 <Link to={"/rover/"+rover.name.toLowerCase()}>
                     <h4 style={{fontSize: "2em"}}>{rover.name}</h4>
-                    <span>{rover.total_photos} Total Photos</span>
-                    <span>Mission Status: {rover.status}</span>
+                    <span>{rover.total_photos.toLocaleString('en', {useGrouping:true})} Total Photos</span>
+                    <span>{rover.landing_date} to {rover.status == "complete" ? rover.max_date : "Present"}</span>
                 </Link>
             </article>)
         }
