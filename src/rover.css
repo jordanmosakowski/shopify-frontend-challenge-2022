@@ -1,0 +1,22 @@
+.date-selection{
+    text-align: center;
+}
+.date-selection input{
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+.date-selection input:focus{
+    outline: none;
+}
+input::-webkit-datetime-edit {
+    color: #ffffff;
+}
+::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+}

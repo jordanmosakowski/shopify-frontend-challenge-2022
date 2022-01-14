@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import "./picture.css";
 
 export function Picture(props){
     const {picture} = props;
@@ -11,13 +12,16 @@ export function Picture(props){
             localStorage.setItem(`liked_${picture.rover.name.toLowerCase()}_${picture.id}`,"true");
         }
         setLiked(!liked);
+        let button = document.getElementById('button_'+picture.id);
+        button.classList.add("clicked");
+        setTimeout(() => button.classList.remove("clicked"),500);
     }
     return (
-        <div>
+        <article className="picture" >
             <img src={picture.img_src} alt=""/><br/>
-            <span style={{fontSize:"1.3em", fontWeight: "bold"}}>{picture.camera.full_name}</span><br/>
-            <span>{picture.rover.name} | {picture.earth_date}</span><br/>
-            <button onClick={toggleLike}>{liked ? "Unlike" : "Like"}</button>
-        </div>
+            <span className="title">{picture.camera.full_name}</span>
+            <span className="description">{picture.rover.name} | {picture.earth_date}</span><br/>
+            <button id={'button_'+picture.id} onClick={toggleLike}>{liked ? "❤️" : "🤍"}</button>
+        </article>
     )
 }
