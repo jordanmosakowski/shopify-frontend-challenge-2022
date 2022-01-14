@@ -2,7 +2,7 @@ import Home from './Home';
 import Rover from './Rover';
 import React, {useState, useEffect} from "react";
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Routes,
   Route,
   Link,
