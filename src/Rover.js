@@ -42,10 +42,10 @@ export default function Rover(){
     }
 
 
-    return <div>
-        <div className='date-selection'>
-            <h2>View photos for:</h2>
-            <input type="date" min="2004-01-01" max={(new Date()).toISOString().split("T")[0]} value={selectedDate}  onChange={dateChanged}/>    
+    return <>
+        <div class='date-container'>
+            <label for='date-selector'>View photos for:</label>
+            <input type="date" name='date-selector' id='date-selector' min="2004-01-01" max={(new Date()).toISOString().split("T")[0]} value={selectedDate}  onChange={dateChanged}/>    
         </div>
         <main style={{textAlign:"center"}}>
             {
@@ -54,7 +54,7 @@ export default function Rover(){
             }
         </main>
         {
-            page!=null && pictures!=null && pictures.length>0 && <button className='paginate' onClick={paginatePhotos}>Load More</button>
+            page!=null && pictures!=null && pictures.length>0 && <button data-message="Load More Photos" className='paginate' onClick={paginatePhotos}>Load More</button>
         }
-    </div>
+    </>
 }

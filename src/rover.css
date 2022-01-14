@@ -1,7 +1,7 @@
-.date-selection{
+.date-container{
     text-align: center;
 }
-.date-selection input{
+#date-selector{
     background-color: #333333;
     color: #ffffff;
     padding: 10px;
@@ -11,7 +11,7 @@
     margin-bottom: 5px;
 }
 
-.date-selection input:focus{
+#date-selector:focus{
     outline: none;
 }
 input::-webkit-datetime-edit {
@@ -25,4 +25,14 @@ button.paginate{
     background-color:#333333;
     padding: 15px;
     margin: 35px auto;
+}
+
+label{
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }

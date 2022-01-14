@@ -29,10 +29,10 @@ export function Picture(props){
 
     return (
         <article className="picture" >
-            <img onClick={openPopup} src={picture.img_src} /><br/>
+            <img onClick={openPopup} src={picture.img_src} alt={`Image ${picture.id} from the ${picture.rover.name} Rover's ${picture.camera.full_name} on ${picture.earth_date}`}/><br/>
             <span className="title">{picture.camera.full_name}</span>
             <span className="description">{picture.rover.name} | {picture.earth_date}</span><br/>
-            <button id={'button_'+picture.id} onClick={toggleLike}>{liked ? "❤️" : "🤍"}</button>
+            <button name="Like Button" id={'button_'+picture.id} onClick={toggleLike}>{liked ? "❤️" : "🤍"}</button>
             <div id={'popup_'+picture.id} className='popup' onClick={closePopup}>
                 <img src={picture.img_src}></img>
             </div>

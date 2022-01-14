@@ -19,13 +19,13 @@ export default function Home(){
     return (<main>
         <h2>Select a Mission to Begin:</h2>
         {
-            rovers.map(rover => <div className='card' key={"rover_"+rover.id}>
+            rovers.map(rover => <article className='card' key={"rover_"+rover.id}>
                 <Link to={"/rover/"+rover.name.toLowerCase()}>
-                    <span style={{fontSize: "2em"}}>{rover.name}</span>
+                    <h4 style={{fontSize: "2em"}}>{rover.name}</h4>
                     <span>{rover.total_photos} Total Photos</span>
-                    <span>Status: {rover.status}</span>
+                    <span>Mission Status: {rover.status}</span>
                 </Link>
-            </div>)
+            </article>)
         }
     </main>);
 }
