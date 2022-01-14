@@ -29,8 +29,8 @@ export default function Home(){
 
     return (<div>
         {
-            rovers.map(rover => <div style={linkHolderStyle}>
-                <Link style={linkStyle} to={"/rover/"+rover.name.toLowerCase()} key={"rover_"+rover.id}>
+            rovers.map(rover => <div style={linkHolderStyle} key={"rover_"+rover.id}>
+                <Link style={linkStyle} to={"/rover/"+rover.name.toLowerCase()}>
                     <span style={{fontSize: "2em"}}>{rover.name}</span><br/>
                     <span>{rover.total_photos} Total Photos</span><br/><br/>
                 </Link>

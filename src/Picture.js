@@ -14,9 +14,10 @@ export function Picture(props){
     }
     return (
         <div>
-                <img src={picture.img_src} alt=""/><br/>
-                <span>{picture.camera.full_name}</span>
-                <button onClick={toggleLike}>{liked ? "Unlike" : "Like"}</button>
+            <img src={picture.img_src} alt=""/><br/>
+            <span style={{fontSize:"1.3em", fontWeight: "bold"}}>{picture.camera.full_name}</span><br/>
+            <span>{picture.rover.name} | {picture.earth_date}</span><br/>
+            <button onClick={toggleLike}>{liked ? "Unlike" : "Like"}</button>
         </div>
     )
 }
