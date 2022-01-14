@@ -5,6 +5,7 @@ export function Picture(props){
     const {picture} = props;
     const [liked, setLiked] = useState(localStorage.getItem(`liked_${picture.rover.name.toLowerCase()}_${picture.id}`) == "true");
     
+    //Toggle whether a picture has been "like"
     const toggleLike = ()=>{
         if(liked){
             localStorage.removeItem(`liked_${picture.rover.name.toLowerCase()}_${picture.id}`);
@@ -18,6 +19,7 @@ export function Picture(props){
         setTimeout(() => button.classList.remove("clicked"),500);
     }
 
+    //Popup to view larger version of photos
     const openPopup = ()=>{
         document.getElementById("popup_"+picture.id).classList.add("open");
     }

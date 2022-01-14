@@ -8,6 +8,7 @@ import "./home.css";
 export default function Home(){
     const [rovers, setRovers] = useState([]);
 
+    //Display a list of rovers to view photos from
     useEffect( () => {
         async function fetchRovers(){
           setRovers((await apiCall('/rovers')).rovers);

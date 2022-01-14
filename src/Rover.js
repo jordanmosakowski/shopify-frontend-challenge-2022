@@ -7,7 +7,7 @@ import "./rover.css";
 export default function Rover(){
     const [pictures, setPictures] = useState(null);
     const { roverId } = useParams();
-    const [selectedDate, setDate] = useState("2022-01-01");
+    const [selectedDate, setDate] = useState((roverId == "spirit" || roverId == "opportunity" ) ? "2010-01-01" : "2022-01-01");
     const [page, setPage] = useState(1);
 
     //Fetch photos on load
