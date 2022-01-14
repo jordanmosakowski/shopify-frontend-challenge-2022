@@ -29,3 +29,9 @@ body::-webkit-scrollbar-thumb {
 body::-webkit-scrollbar-thumb:hover {
   background: #777777;
 }
+
+a{
+  color: #ffffff;
+  text-decoration: none;
+  text-align: center;
+};
